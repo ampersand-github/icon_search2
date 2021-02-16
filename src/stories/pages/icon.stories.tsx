@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta } from "@storybook/react/types-6-0";
-import IconPage from "../../../pages/[icon]";
+import IconPage from "../../../pages/search/[icon]";
 import { withNextRouter } from "storybook-addon-next-router";
 export default {
   title: "pages/icon",
@@ -8,7 +8,7 @@ export default {
   decorators: [withNextRouter],
 } as Meta;
 
-export const iconPage: any = () => {
+export const iconPage = () => {
   return <IconPage />;
 };
 iconPage.story = {

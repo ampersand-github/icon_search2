@@ -11,7 +11,7 @@ const useStyles = makeStyles(() =>
     },
   })
 )
-const Description: React.FC = () => {
+export const Description: React.FC = () => {
   const classes = useStyles()
   return (
     <Typography variant="caption" noWrap>
@@ -21,4 +21,4 @@ const Description: React.FC = () => {
     </Typography>
   )
 }
-export default Description
+

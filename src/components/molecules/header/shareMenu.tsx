@@ -17,7 +17,6 @@ import {
 import IconButton from "@material-ui/core/IconButton";
 
 import { appConstants } from "../../../constants/appConstants";
-import SearchIcon from "@material-ui/icons/Search";
 import AppLogo from "../../atoms/AppLogo";
 
 const useStyles = makeStyles(() =>

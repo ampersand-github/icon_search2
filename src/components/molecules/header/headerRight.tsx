@@ -1,12 +1,6 @@
 import React from "react";
-import { Box, createStyles, Icon, makeStyles, Paper } from "@material-ui/core";
-import AppLogo from "../../atoms/AppLogo";
+import { Box, createStyles,  makeStyles } from "@material-ui/core";
 import { ShareMenu } from "./shareMenu";
-import ShareIcon from "@material-ui/icons/Share";
-import IconButton from "@material-ui/core/IconButton";
-import SearchIcon from "@material-ui/icons/Search";
-
-import { useRouter } from "next/router";
 import SearchButton from "../../atoms/searchButton";
 
 const useStyles = makeStyles(() => {

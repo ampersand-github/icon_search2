@@ -23,7 +23,7 @@ const SearchForm: React.FC = () => {
   const router = useRouter()
 
   // todo anyの撲滅
-  const keyPress = (e: any) => {
+  const keyPress = (e:any) => {
     if (e.keyCode === 13) {
       console.log('value', e.target.value)
       e.preventDefault()

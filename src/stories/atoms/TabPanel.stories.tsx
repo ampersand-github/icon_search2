@@ -7,14 +7,14 @@ export default {
   component: TabPanel,
 } as Meta
 
-export const TabPanel_見える = () => {
+export const TabPanel_見える: React.FC  = () => {
   return (
     <TabPanel index={0} value={0}>
       <div>indexが0でvalueが0なのでこれは見えるTAB</div>
     </TabPanel>
   )
 }
-export const TabPanel_見えない = () => {
+export const TabPanel_見えない: React.FC  = () => {
   return (
     <TabPanel index={0} value={1}>
       <div>indexが0でvalueが0なのでこれは見えるTAB</div>

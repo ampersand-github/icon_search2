@@ -1,6 +1,5 @@
 import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { Box } from "@material-ui/core";
 import { HeaderLeft } from "../molecules/header/headerLeft";
 import { HeaderRight } from "../molecules/header/headerRight";
 

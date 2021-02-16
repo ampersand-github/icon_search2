@@ -11,10 +11,10 @@ export default {
 const iconMaterialData = gridListConstants.materialIconData[0];
 const awesomeIconData = gridListConstants.awesomeIconData[0];
 
-export const AwesomeIcon = () => {
+export const AwesomeIcon: React.FC  = () => {
   return <VariousIcon iconData={awesomeIconData} iconSize={24} />;
 };
-export const MaterialDataIcon = () => {
+export const MaterialDataIcon : React.FC = () => {
   return (
     <div>
       <VariousIcon iconData={iconMaterialData} iconSize={24} />

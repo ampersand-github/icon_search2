@@ -7,6 +7,6 @@ export default {
   component: Title,
 } as Meta
 
-export const Title_story = () => {
+export const Title_story: React.FC  = () => {
   return <Title />
 }

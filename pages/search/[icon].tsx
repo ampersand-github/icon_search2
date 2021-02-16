@@ -1,4 +1,4 @@
-import Layout from "../src/components/templates/Layout";
+import Layout from "../../src/components/templates/Layout";
 import React from "react";
 import { useRouter } from "next/router";
 

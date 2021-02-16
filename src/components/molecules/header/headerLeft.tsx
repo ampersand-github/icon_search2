@@ -4,7 +4,8 @@ import { Box } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import AppLogo from "../../atoms/AppLogo";
 import Title from "../../atoms/Title";
-import Description from "../../atoms/Desctiption";
+import {Description} from "../../atoms/Desctiption";
+
 
 const useStyles = makeStyles(() =>
   createStyles({
