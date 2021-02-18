@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { widthConstants } from "../../constants/widthConstants";
 import { linkConstants } from "../../constants/linkConstants";
 import { HeaderLeft } from "../molecules/header/headerLeft";
 import { TextWrapper } from "../atoms/LinkTextWrapper";
@@ -26,7 +25,6 @@ const useStyles = makeStyles(() => {
 
 export const MyFooter: React.FC = () => {
   const classes = useStyles();
-  const width = widthConstants.footerWidth;
   //
   const privacyPolicy = linkConstants.privacyPolicy;
   const termsOfService = linkConstants.TermsOfService;

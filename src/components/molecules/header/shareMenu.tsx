@@ -15,9 +15,8 @@ import {
 } from "react-share";
 
 import IconButton from "@material-ui/core/IconButton";
-import ShareIcon from '@material-ui/icons/Share';
+import ShareIcon from "@material-ui/icons/Share";
 import { appConstants } from "../../../constants/appConstants";
-import AppLogo from "../../atoms/AppLogo";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -46,7 +45,7 @@ export const ShareMenu: React.FC = () => {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <ShareIcon/>
+        <ShareIcon />
       </IconButton>
       <Menu
         id="share"
