@@ -3,7 +3,7 @@ import { Meta } from "@storybook/react/types-6-0";
 import { ShareMenu } from "../../../components/molecules/header/shareMenu";
 
 export default {
-  title: "organisms/shareMenu",
+  title: "molecules/shareMenu",
   component: ShareMenu,
 } as Meta;
 

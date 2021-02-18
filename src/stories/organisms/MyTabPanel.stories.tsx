@@ -3,6 +3,7 @@ import { Meta } from "@storybook/react/types-6-0";
 import { initialState } from "../../store/tab/initialState";
 import { TabContext } from "../../store/tab/provider";
 import { Action, stateType } from "../../store/tab/types";
+import { MyTabPanel } from "../../components/organisms/MyTabPanel";
 
 export default {
   title: "organisms/MyTabPanel",
@@ -31,16 +32,15 @@ const storiesReducers = (state: stateType, action: Action): stateType => {
   }
 };
 
-export const MaterialMyTabPanel_story = () => {
-  const StoriesInitialState = initialState;
-  const [state, dispatch] = useReducer(storiesReducers, StoriesInitialState);
+export const MaterialMyTabPanel: React.FC = () => {
+  const [state, dispatch] = useReducer(storiesReducers, initialState);
   return (
     <TabContext.Provider value={{ state, dispatch }}>
       <MyTabPanel />
     </TabContext.Provider>
   );
 };
-export const AwesomeMyTabPanel_story = () => {
+export const AwesomeMyTabPanel: React.FC = () => {
   const StoriesInitialState = {
     ...initialState,
     currentTabIndex: 1,

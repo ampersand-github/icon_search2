@@ -3,7 +3,7 @@ import { Meta } from "@storybook/react/types-6-0";
 import { HeaderRight } from "../../../components/molecules/header/headerRight";
 
 export default {
-  title: "organisms/HeaderRight",
+  title: "molecules/HeaderRight",
   component: HeaderRight,
 } as Meta;
 

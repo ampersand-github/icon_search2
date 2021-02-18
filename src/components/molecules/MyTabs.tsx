@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
 import { Tab, Tabs } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { tabIndexConstants } from "../../../constants/tabIndexConstants";
-import { TabContext } from "../../../store/tab/provider";
+import { tabIndexConstants } from "../../constants/tabIndexConstants";
+import { TabContext } from "../../store/tab/provider";
 
-export const a11yProps = (index: number) => ({
-  id: `tab-${index}`,
-  "aria-controls": `tabPanel-${index}`,
-});
+export const a11yProps = (
+  index: number
+): { id: string; "aria-controls": string } => {
+  return {
+    id: `tab-${index}`,
+    "aria-controls": `tabPanel-${index}`,
+  };
+};
 
 const useStyles = makeStyles(() => {
   return createStyles({
@@ -25,12 +29,12 @@ export const MyTabs: React.FC = () => {
   return (
     <Tabs
       value={state.currentTabIndex}
-      onChange={(_, value) => {
-        dispatch({ type: "CHANGE_TAB", index: value });
-      }}
       aria-label="tabs"
       centered
       variant="fullWidth"
+      onChange={(_, value) => {
+        dispatch({ type: "CHANGE_TAB", index: value });
+      }}
     >
       <Tab
         className={classes.tab}
