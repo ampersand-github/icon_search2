@@ -7,6 +7,7 @@ import {
   makeStyles,
   TextField,
   Theme,
+  Typography,
 } from "@material-ui/core";
 
 import { SearchRounded } from "@material-ui/icons";
@@ -20,7 +21,9 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+
 library.add(fas, far, fab);
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     textField: {
@@ -38,6 +41,9 @@ const SearchPage: React.FC = () => {
   const [awesomeMatchList, setAwesomeMatchList] = useState<iconType[]>([]);
   const [materialMatchList, setMaterialMatchList] = useState<iconType[]>([]);
   const filteredIconList = (value: string) => {
+    if (value === "") {
+      return;
+    }
     const fontAwesome = fontAwesomeIconData.filter(
       (icon: iconType) =>
         icon.tag.find((tag) => tag.indexOf(value) > -1) ||
@@ -55,42 +61,51 @@ const SearchPage: React.FC = () => {
 
   return (
     <Layout>
-      <Box borderRadius={24}>
-        <TextField
-          className={classes.textField}
-          fullWidth
-          variant="outlined"
-          id="input-with-icon-textfield"
-          placeholder={"アイコンの特徴を入力してください..."}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="start">
-                <SearchRounded />
-              </InputAdornment>
-            ),
-          }}
-          onChange={(e) => {
-            filteredIconList(e.target.value);
-          }}
-        />
+      <Box borderRadius={48}>
+        <section className={classes.textField}>
+          <TextField
+            fullWidth
+            variant="outlined"
+            id="input-with-icon-textfield"
+            placeholder={"アイコンの特徴を入力してください..."}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="start">
+                  <SearchRounded />
+                </InputAdornment>
+              ),
+            }}
+            onChange={(e) => {
+              filteredIconList(e.target.value);
+            }}
+          />
+          <p>※ 上位100件までを表示します。</p>
+          <Box height={48} />
+        </section>
       </Box>
-      <Box height={48} />
+
+      {/*  material */}
       <section>
-        結果一覧 一致件数：○件 上位100件までを表示します。
-        <section>
-          <p>検索一致件数：</p>
-          <IconList
-            iconDataList={materialMatchList}
-            generateUrl={generateMaterialUrl}
-          />
-        </section>
-        <section>
-          <p>検索一致件数：</p>
-          <IconList
-            iconDataList={awesomeMatchList}
-            generateUrl={generateFontAwesomeUrl}
-          />
-        </section>
+        <Typography variant="h6" style={{ fontWeight: "bold" }}>
+          materialDesign
+        </Typography>
+        <p>検索一致件数 : {materialMatchList.length}件</p>
+        <IconList
+          iconDataList={materialMatchList}
+          generateUrl={generateMaterialUrl}
+        />
+      </section>
+      <Box height={48} />
+      {/*  fontAwesome */}
+      <section>
+        <Typography variant="h6" style={{ fontWeight: "bold" }}>
+          fontAwesome
+        </Typography>
+        <p>検索一致件数 : {awesomeMatchList.length}件</p>
+        <IconList
+          iconDataList={awesomeMatchList}
+          generateUrl={generateFontAwesomeUrl}
+        />
       </section>
     </Layout>
   );
