@@ -31,12 +31,12 @@ export const IconList: React.FC<Props> = (props: Props) => {
     useWindowSize().width / (config.iconSize + width * 2)
   );
   return (
-    <LazyLoad>
-      <GridList cols={cols}>
-        {props.iconDataList.map((iconData, index) => (
-          <GridListTile key={index}>
-            <Box className={classes.root}>
-              <Box width={width} />
+    <GridList cols={cols}>
+      {props.iconDataList.map((iconData, index) => (
+        <GridListTile key={index}>
+          <Box className={classes.root}>
+            <Box width={width} />
+            <LazyLoad>
               <IconTile
                 iconData={iconData}
                 icon={iconData.icon}
@@ -44,11 +44,11 @@ export const IconList: React.FC<Props> = (props: Props) => {
                 iconSize={config.iconSize}
                 cellHeight={config.cellHeight}
               />
-              <Box width={width} />
-            </Box>
-          </GridListTile>
-        ))}
-      </GridList>
-    </LazyLoad>
+            </LazyLoad>
+            <Box width={width} />
+          </Box>
+        </GridListTile>
+      ))}
+    </GridList>
   );
 };

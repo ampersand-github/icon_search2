@@ -1,6 +1,14 @@
 import React from "react";
+import Layout from "../../src/components/templates/Layout";
+import { Box } from "@material-ui/core";
 
-const index: React.FC = () => {
-  return <img src="/favicon.ico" alt={"favicon"} width={32} height={32} />;
+const SearchPage: React.FC = () => {
+  return (
+    <Layout>
+      <section>入力フォーム</section>
+      <Box height={48} />
+      <section>結果一覧</section>
+    </Layout>
+  );
 };
-export default index;
+export default SearchPage;
