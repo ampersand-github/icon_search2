@@ -86,9 +86,11 @@ export const ShareMenu: React.FC = () => {
             </Box>
           </TwitterShareButton>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        {/*
+          <MenuItem onClick={handleClose}>
           <HatenaShareButton />
         </MenuItem>
+        */}
       </Menu>
     </Box>
   );
@@ -98,7 +100,7 @@ export const ShareMenu: React.FC = () => {
 function HatenaShareButton() {
   return (
     <a
-      href={`https://b.hatena.ne.jp/entry/s/${appConstants.appUrl}/`}
+      href={`https://b.hatena.ne.jp/entry/s/${appConstants.appUrl}`}
       className="hatena-bookmark-button"
       data-hatena-bookmark-layout="touch"
       title="このエントリーをはてなブックマークに追加"

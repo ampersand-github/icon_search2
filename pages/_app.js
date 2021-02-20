@@ -4,11 +4,22 @@ import Head from "next/head";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { appConstants } from "../src/constants/appConstants";
 import { TabProvider } from "../src/store/tab/provider";
+import { createStyles, makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    root: {
+      paddingLeft: theme.spacing(3),
+      paddingRight: theme.spacing(3),
+    },
+  })
+);
 
 // このページのおかげでbuildしたモジュールがレイアウト崩れをおこなさない。
 // dev中はレイアウト崩れを起こす
 export default function MyApp(props) {
   const { Component, pageProps } = props;
+  const classes = useStyles();
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -35,7 +46,9 @@ export default function MyApp(props) {
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
       <TabProvider>
-        <Component {...pageProps} />
+        <div className={classes.root}>
+          <Component {...pageProps} />
+        </div>
       </TabProvider>
     </React.Fragment>
   );
