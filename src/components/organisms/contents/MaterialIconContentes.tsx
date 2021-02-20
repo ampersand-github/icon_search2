@@ -61,6 +61,7 @@ export const MaterialIconContents: React.FC = () => {
   return (
     <Box>
       {tab()}
+      <Box height={48} />
       {tabPanes()}
     </Box>
   );

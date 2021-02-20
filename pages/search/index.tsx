@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Layout from "../../src/components/templates/Layout";
 import {
   Box,
+  Container,
   createStyles,
   InputAdornment,
   makeStyles,
@@ -21,6 +22,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { MyTabs } from "../../src/components/molecules/MyTabs";
 
 library.add(fas, far, fab);
 
@@ -61,52 +63,58 @@ const SearchPage: React.FC = () => {
 
   return (
     <Layout>
-      <Box borderRadius={48}>
-        <section className={classes.textField}>
-          <TextField
-            fullWidth
-            variant="outlined"
-            id="input-with-icon-textfield"
-            placeholder={"アイコンの特徴を入力してください..."}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="start">
-                  <SearchRounded />
-                </InputAdornment>
-              ),
-            }}
-            onChange={(e) => {
-              filteredIconList(e.target.value);
-            }}
-          />
-          <p>※ 上位100件までを表示します。</p>
-          <Box height={48} />
-        </section>
-      </Box>
+      <div style={{ backgroundColor: "#E6F2FF" }}>
+        <Box height={24} />
+        <Container maxWidth={"lg"}>
+          <Box borderRadius={48}>
+            <section className={classes.textField}>
+              <TextField
+                fullWidth
+                variant="outlined"
+                id="input-with-icon-textfield"
+                placeholder={"アイコンの特徴を入力してください..."}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="start">
+                      <SearchRounded />
+                    </InputAdornment>
+                  ),
+                }}
+                onChange={(e) => {
+                  filteredIconList(e.target.value);
+                }}
+              />
+              <p>※ 上位100件までを表示します。</p>
+              <Box height={8} />
+            </section>
+          </Box>
 
-      {/*  material */}
-      <section>
-        <Typography variant="h6" style={{ fontWeight: "bold" }}>
-          materialDesign
-        </Typography>
-        <p>検索一致件数 : {materialMatchList.length}件</p>
-        <IconList
-          iconDataList={materialMatchList}
-          generateUrl={generateMaterialUrl}
-        />
-      </section>
-      <Box height={48} />
-      {/*  fontAwesome */}
-      <section>
-        <Typography variant="h6" style={{ fontWeight: "bold" }}>
-          fontAwesome
-        </Typography>
-        <p>検索一致件数 : {awesomeMatchList.length}件</p>
-        <IconList
-          iconDataList={awesomeMatchList}
-          generateUrl={generateFontAwesomeUrl}
-        />
-      </section>
+          {/*  material */}
+          <section>
+            <Typography variant="h6" style={{ fontWeight: "bold" }}>
+              materialDesign
+            </Typography>
+            <p>検索一致件数 : {materialMatchList.length}件</p>
+            <IconList
+              iconDataList={materialMatchList}
+              generateUrl={generateMaterialUrl}
+            />
+          </section>
+          <Box height={48} />
+          {/*  fontAwesome */}
+          <section>
+            <Typography variant="h6" style={{ fontWeight: "bold" }}>
+              fontAwesome
+            </Typography>
+            <p>検索一致件数 : {awesomeMatchList.length}件</p>
+            <IconList
+              iconDataList={awesomeMatchList}
+              generateUrl={generateFontAwesomeUrl}
+            />
+          </section>
+        </Container>
+        <Box height={48} />
+      </div>
     </Layout>
   );
 };

@@ -65,6 +65,7 @@ export const FontAwesomeContents: React.FC = () => {
   return (
     <Box>
       {tab()}
+      <Box height={32} />
       {tabPanes()}
     </Box>
   );

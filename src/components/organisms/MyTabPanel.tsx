@@ -4,8 +4,8 @@ import { tabIndexConstants } from "../../constants/tabIndexConstants";
 import { TabContext } from "../../store/tab/provider";
 import { MaterialIconContents } from "./contents/MaterialIconContentes";
 import { FontAwesomeContents } from "./contents/FontAwesomeContents";
+import { Box } from "@material-ui/core";
 
-// todo 外へ
 export const childA11yProps = (
   index: number
 ): { id: string; "aria-controls": string } => ({
@@ -23,6 +23,7 @@ export const MyTabPanel: React.FC = () => {
       >
         <MaterialIconContents />
       </TabPanel>
+
       <TabPanel
         value={state.currentTabIndex}
         index={tabIndexConstants.fontAwesome.index}

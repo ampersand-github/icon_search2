@@ -96,6 +96,7 @@ export const ShareMenu: React.FC = () => {
   );
 };
 
+/*
 // todo 別ファイルに
 function HatenaShareButton() {
   return (
@@ -121,3 +122,4 @@ function HatenaShareButton() {
     </a>
   );
 }
+ */

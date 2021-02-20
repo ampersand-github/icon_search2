@@ -30,8 +30,6 @@ export const MyTabs: React.FC = () => {
     <Tabs
       value={state.currentTabIndex}
       aria-label="tabs"
-      centered
-      variant="fullWidth"
       onChange={(_, value) => {
         dispatch({ type: "CHANGE_TAB", index: value });
       }}

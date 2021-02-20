@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => {
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
-      height: 64,
+      height: 80,
       width: "100%",
     },
     rightHeader: {

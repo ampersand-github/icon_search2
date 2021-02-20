@@ -5,25 +5,23 @@ import { TabContext } from "../src/store/tab/provider";
 import { initialState } from "../src/store/tab/initialState";
 import { reducers } from "../src/store/tab/reducers";
 import { MyTabs } from "../src/components/molecules/MyTabs";
-import { createStyles, makeStyles, Theme } from "@material-ui/core";
+import { Box, Container } from "@material-ui/core";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      paddingLeft: theme.spacing(3),
-      paddingRight: theme.spacing(3),
-    },
-  })
-);
 const IndexPage: React.FC = () => {
-  const classes = useStyles();
   const [state, dispatch] = useReducer(reducers, initialState);
   return (
     <TabContext.Provider value={{ state, dispatch }}>
-      <section className={classes.root}>
+      <section>
         <Layout>
-          <MyTabs />
-          <MyTabPanel />
+          <Container maxWidth={"lg"}>
+            <MyTabs />
+          </Container>
+          <div style={{ backgroundColor: "#E6F2FF" }}>
+            <Container maxWidth={"lg"}>
+              <Box height={8} />
+              <MyTabPanel />
+            </Container>
+          </div>
         </Layout>
       </section>
     </TabContext.Provider>

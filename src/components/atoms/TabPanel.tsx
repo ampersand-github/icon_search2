@@ -19,9 +19,7 @@ export const TabPanel: React.FC<TabPanelProps> = (props: TabPanelProps) => {
       {...other}
     >
       {value === index && (
-        <Box p={3}>
-          <Typography component={"span"}>{children}</Typography>
-        </Box>
+        <Typography component={"span"}>{children}</Typography>
       )}
     </div>
   );
