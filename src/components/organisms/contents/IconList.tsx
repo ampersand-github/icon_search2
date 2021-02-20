@@ -6,6 +6,7 @@ import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { iconType } from "../../../types/iconType";
 import { IconTile } from "../../molecules/IconTile";
 import LazyLoad from "react-lazyload";
+import { breakpointsConstraints } from "../../../constants/breakPointConstants";
 
 interface Props {
   generateUrl(arg0: iconType): string;
@@ -25,10 +26,14 @@ const useStyles = makeStyles(() => {
 export const IconList: React.FC<Props> = (props: Props) => {
   const classes = useStyles();
   const config = gridListConstants;
-  const width = 48;
+  const { width } = useWindowSize();
+  const tablet = breakpointsConstraints.tablet;
+  const padding = width <= tablet ? 24 : 48;
+  const iconSize = width <= tablet ? config.iconSizeMobile : config.iconSize;
+  const height = width <= tablet ? config.cellHeightMobile : config.cellHeight;
   // todo helperへ
   const cols: number = Math.floor(
-    useWindowSize().width / (config.iconSize + width * 2)
+    useWindowSize().width / (iconSize + padding * 2)
   );
   return (
     <GridList cols={cols}>
@@ -41,8 +46,8 @@ export const IconList: React.FC<Props> = (props: Props) => {
                 iconData={iconData}
                 icon={iconData.icon}
                 url={props.generateUrl(iconData)}
-                iconSize={config.iconSize}
-                cellHeight={config.cellHeight}
+                iconSize={iconSize}
+                cellHeight={height}
               />
             </LazyLoad>
             <Box width={width} />

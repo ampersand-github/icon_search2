@@ -4,8 +4,9 @@ import { Box } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import AppLogo from "../../atoms/AppLogo";
 import Title from "../../atoms/Title";
-import {Description} from "../../atoms/Desctiption";
-
+import { Description } from "../../atoms/Desctiption";
+import { breakpointsConstraints } from "../../../constants/breakPointConstants";
+import { useWindowSize } from "../../../utils/hooks/useWindowSize";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -17,7 +18,6 @@ const useStyles = makeStyles(() =>
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
-      justifyContent: "center",
     },
     icon: {
       alignItems: "center",
@@ -35,11 +35,12 @@ const useStyles = makeStyles(() =>
 
 export const HeaderLeft: React.FC = () => {
   const classes = useStyles();
+  const { width } = useWindowSize();
   return (
     <Link href="/">
       <Box className={classes.headerTitleRow}>
-        <AppLogo />
-        <Box width={16} />
+        {width <= breakpointsConstraints.tablet ? <div /> : <AppLogo />}
+        {width <= breakpointsConstraints.tablet ? <div /> : <Box width={16} />}
         <Box className={classes.headerTitleColumn}>
           <Title />
           <Box className={classes.description}>

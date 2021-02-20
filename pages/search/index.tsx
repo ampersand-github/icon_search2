@@ -22,24 +22,31 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { MyTabs } from "../../src/components/molecules/MyTabs";
+import { tabIndexConstants } from "../../src/constants/tabIndexConstants";
+import { useWindowSize } from "../../src/utils/hooks/useWindowSize";
+import { breakpointsConstraints } from "../../src/constants/breakPointConstants";
+import AppLogo from "../../src/components/atoms/AppLogo";
 
 library.add(fas, far, fab);
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     textField: {
-      padding: theme.spacing(3),
       [`& fieldset`]: {
         borderRadius: 48,
       },
+    },
+    fontSize: {},
+    fontSizePhone: {
+      fontSize: 12,
     },
   })
 );
 
 const SearchPage: React.FC = () => {
   const classes = useStyles();
-
+  const { width } = useWindowSize();
+  const variant = width <= breakpointsConstraints.tablet ? "body1" : "h6";
   const [awesomeMatchList, setAwesomeMatchList] = useState<iconType[]>([]);
   const [materialMatchList, setMaterialMatchList] = useState<iconType[]>([]);
   const filteredIconList = (value: string) => {
@@ -64,16 +71,23 @@ const SearchPage: React.FC = () => {
   return (
     <Layout>
       <div style={{ backgroundColor: "#E6F2FF" }}>
-        <Box height={24} />
+        <Box height={48} />
         <Container maxWidth={"lg"}>
           <Box borderRadius={48}>
             <section className={classes.textField}>
               <TextField
                 fullWidth
                 variant="outlined"
+                autoFocus={true}
                 id="input-with-icon-textfield"
                 placeholder={"アイコンの特徴を入力してください..."}
                 InputProps={{
+                  classes: {
+                    input:
+                      width <= breakpointsConstraints.tablet
+                        ? classes.fontSizePhone
+                        : classes.fontSize,
+                  },
                   endAdornment: (
                     <InputAdornment position="start">
                       <SearchRounded />
@@ -91,8 +105,8 @@ const SearchPage: React.FC = () => {
 
           {/*  material */}
           <section>
-            <Typography variant="h6" style={{ fontWeight: "bold" }}>
-              materialDesign
+            <Typography variant={variant} style={{ fontWeight: "bold" }}>
+              {tabIndexConstants.material.name}
             </Typography>
             <p>検索一致件数 : {materialMatchList.length}件</p>
             <IconList
@@ -100,11 +114,16 @@ const SearchPage: React.FC = () => {
               generateUrl={generateMaterialUrl}
             />
           </section>
-          <Box height={48} />
+
+          {width <= breakpointsConstraints.tablet ? (
+            <Box height={16} />
+          ) : (
+            <Box height={48} />
+          )}
           {/*  fontAwesome */}
           <section>
-            <Typography variant="h6" style={{ fontWeight: "bold" }}>
-              fontAwesome
+            <Typography variant={variant} style={{ fontWeight: "bold" }}>
+              {tabIndexConstants.fontAwesome.name}
             </Typography>
             <p>検索一致件数 : {awesomeMatchList.length}件</p>
             <IconList
