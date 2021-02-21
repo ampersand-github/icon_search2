@@ -1,3 +1,4 @@
+import 'firebase/analytics'
 import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
@@ -5,6 +6,13 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { appConstants } from "../src/constants/appConstants";
 import { TabProvider } from "../src/store/tab/provider";
 import { createStyles, makeStyles } from "@material-ui/core";
+import firebase from "firebase";
+import firebaseConfig from "../src/constants/firebase";
+
+if (typeof window !== 'undefined' && !firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+}
 
 const useStyles = makeStyles((theme) =>
   createStyles({
