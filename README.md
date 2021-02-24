@@ -35,5 +35,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 
 `npm run build`  
+next export
 `firebase deploy --only hosting:icon-search-app`  
 `serve -s ./build`  

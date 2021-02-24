@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "build",
+    "public": "out",
     "site": "icon-search-app",
     "ignore": [
       "firebase.json",
